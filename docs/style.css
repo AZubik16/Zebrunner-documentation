@@ -1,0 +1,148 @@
+@font-face {
+  font-family: Maven Pro;
+  src: url("fonts/Maven_Pro/MavenPro-Regular.ttf");
+}
+
+@font-face {
+  font-family: Maven Pro Bold;
+  src: url("fonts/Maven_Pro/MavenPro-Bold.ttf");
+}
+
+:root {
+  --base-background-color: #F1F2F3;
+  --base-font-family:  Maven Pro;
+
+  --blockquote-background: #F1F2F3;
+
+  --code-font-family: Maven Pro;
+  --code-font-size: 14px;
+  --code-font-weight: normal;
+  --code-block-margin: 0;
+  --code-block-padding: 24px 44px;
+  --code-theme-background: #fff;
+  --code-theme-tag: blue;
+  --docsifytabs-content-padding: 0;
+  --docsifytabs-border: transperent;
+
+  --heading-color: #000;
+  --heading-font-family: Maven Pro Bold;
+  --heading-h2-font-size:40px;
+  --heading-h2-font-weight: 700;
+  --heading-h2-margin: 100px 0 80px;
+  --heading-h2-padding: 0 0 48px;
+  --heading-h3-font-size: 32px;
+  --heading-h3-font-weight: 700;
+  --heading-h3-margin: 90px 0 24px;
+
+  --link-color: #0DC077;
+  --link-text-decoration: none;
+
+  --navbar-menu-link-color: #5C5C5C;
+  --navbar-menu-link-color--active: #000;
+  --navbar-root-margin: 0 40px;
+
+  --sidebar-background: #F1F2F3;
+  --sidebar-nav-pagelink-padding: 0 15px;
+  --sidebar-nav-link-font-family--active: Maven Pro Bold;
+  --sidebar-nav-link-font-weight: normal;
+  --sidebar-nav-link-font-weight--active: bold;
+  --sidebar-nav-link-font-color--active: #000;
+}
+
+.sidebar-nav img {
+  margin: 15px 0;
+}
+
+.sidebar-nav a {
+  padding: 0;
+}
+
+.sidebar-nav>ul>li {
+  margin-bottom: 25px;
+}
+
+.sidebar-nav>ul>li p {
+  margin: 0;
+}
+
+.sidebar-nav>ul>li>p, a[title="PHP"], a[title="AGENTS"] {
+  color: #0DC077;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.sidebar-nav ul li ul {
+  margin-left: 0;
+}
+
+.sidebar-nav ul li ul li ul {
+  margin-left: 25px;
+}
+
+.sidebar-nav ul li ul li p {
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+}
+
+
+.sidebar-nav ul li a {
+  font-size: 14px;
+}
+
+.sidebar-nav li.active>a {
+  border-color: transparent;
+  color: #000;
+  font-family: Maven Pro Bold;
+  font-weight: 700;
+}
+
+.docsify-tabs {
+  border: 1px solid #bbbaba;
+  border-radius: 5px;
+}
+
+.app-nav>ul>li>a.active {
+  color: #000;
+  font-weight: bold;
+  font-family: Maven Pro Bold;
+}
+
+.app-nav ul {
+  margin-bottom: 100px;
+}
+
+.markdown-section h2:first-child {
+  margin-top: 100px;
+}
+
+.collapse {
+  display: none;
+}
+
+@media screen and (max-width: 1030px) {
+  :root {
+    --navbar-root-margin: 0 15px;
+  }
+}
+
+@media screen and (max-width: 832px) {
+  :root {
+    --navbar-root-margin: 0 7px;
+    --heading-h2-margin: 45px 0 40px;
+    --heading-h2-padding: 0 0 28px;
+    --heading-h3-font-size: 32px;
+    --heading-h3-font-weight: 700;
+    --heading-h3-margin: 30px 0 14px;
+
+    --code-block-padding: 24px 14px;
+  }
+
+  .markdown-section h2:first-child {
+    margin-top: 45px;
+  }
+
+  .markdown-section blockquote {
+    margin: 20px 0;
+  }
+}

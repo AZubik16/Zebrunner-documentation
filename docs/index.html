@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/docsify-themeable/dist/css/theme-simple.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    window.$docsify = {
+      name: '',
+      repo: '',
+      logo: '/_media/zebrunner-logo.png',
+      loadSidebar: true,
+      loadNavbar: true,
+      alias: {
+        '/.*/_sidebar.md': '/_sidebar.md',
+        '/.*/_navbar.md': '/_navbar.md',
+      },
+      search: {
+        depth: 2,
+        noData: 'No results!',
+        placeholder: 'Search...'
+      },
+      tabs: {
+        theme: 'material'
+      },
+      themeable: {
+        responsiveTables: true
+      },
+      copyCode: {
+        buttonText: 'Copy to clipboard',
+      },
+      themeColor: '#0DC077',
+      plugins: [
+        (hook, vm) => {
+          hook.mounted(function() {
+            const sidebarNavEl = document.querySelector('.sidebar-nav');
+
+            if (sidebarNavEl) {
+              sidebarNavEl.addEventListener('click', (e) => {
+                const elem = e.target;
+                const ulList = document.getElementsByTagName('ul');
+                if (elem.innerText === 'Java') {
+                  if (ulList[3].hasAttribute('class')) {
+                    ulList[3].removeAttribute('class')
+                  } else {
+                    ulList[3].setAttribute('class', 'collapse');
+                  }
+                }
+              })
+            }
+          });
+          hook.ready(function() {
+            const ulList = document.getElementsByTagName('ul');
+            ulList[3].setAttribute('class', 'collapse');
+          });
+        },
+      ],
+    }
+  </script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+  <script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script>
+  <script src="//unpkg.com/docsify-themeable"></script>
+  <script src="//unpkg.com/docsify-copy-code"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
+</body>
+</html>
