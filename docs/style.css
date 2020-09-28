@@ -47,6 +47,10 @@
   --sidebar-nav-link-font-weight: normal;
   --sidebar-nav-link-font-weight--active: bold;
   --sidebar-nav-link-font-color--active: #000;
+  --sidebar-nav-link-before-content-l3--active: '';
+  --sidebar-nav-link-before-content--active: '';
+  --sidebar-nav-link-before-content-l3: '';
+  --sidebar-nav-link-before-content: '';
 }
 
 .sidebar-nav img {
@@ -76,7 +80,11 @@
 }
 
 .sidebar-nav ul li ul li ul {
-  margin-left: 25px;
+  margin-left: 20px;
+}
+
+.sidebar-nav ul li ul li ul a::before {
+  content: '';
 }
 
 .sidebar-nav ul li ul li p {
