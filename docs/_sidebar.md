@@ -4,7 +4,7 @@
 
 *  GETTING STARTED
   [Overview]()
-  [Release notes]()
+  [Release notes](release-notes/README.md)
   [FAQ]()
 
 * [AGENTS]()

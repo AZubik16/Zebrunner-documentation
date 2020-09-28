@@ -21,6 +21,7 @@
       alias: {
         '/.*/_sidebar.md': '/_sidebar.md',
         '/.*/_navbar.md': '/_navbar.md',
+        '/.*/arrow-left.png': '/arrow-left.png'
       },
       search: {
         depth: 2,
@@ -45,6 +46,7 @@
             if (sidebarNavEl) {
               sidebarNavEl.addEventListener('click', (e) => {
                 const elem = e.target;
+                debugger
                 const ulList = document.getElementsByTagName('ul');
                 if (elem.innerText === 'Java') {
                   if (ulList[3].hasAttribute('class')) {
@@ -59,6 +61,20 @@
           hook.ready(function() {
             const ulList = document.getElementsByTagName('ul');
             ulList[3].setAttribute('class', 'collapse');
+            const navigation = document.querySelector('.app-nav > p');
+            const list = document.querySelector('nav > ul').setAttribute('class', 'nav-close');
+            if (navigation) {
+              navigation.addEventListener('click', (e) => {
+                const list = document.querySelector('nav > ul');
+                if (list.className === 'nav-open') {
+                  list.removeAttribute('class')
+                  list.setAttribute('class', 'nav-close')
+                } else {
+                  list.removeAttribute('class')
+                  list.setAttribute('class', 'nav-open')
+                }
+              })
+            }
           });
         },
       ],

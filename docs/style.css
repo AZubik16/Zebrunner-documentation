@@ -51,6 +51,15 @@
   --sidebar-nav-link-before-content--active: '';
   --sidebar-nav-link-before-content-l3: '';
   --sidebar-nav-link-before-content: '';
+  --sidebar-nav-link-color--active: #000;
+
+  --table-head-font-weight: 900;
+  --table-head-font-size: 32px;
+  --table-head-background: #F1F2F3;
+  --table-row-odd-background: #F1F2F3;
+  --table-body-border-color: transparent;
+  --table-body-border-width: 0;
+  --table-cell-border-color: transparent;
 }
 
 .sidebar-nav img {
@@ -110,7 +119,7 @@
   border-radius: 5px;
 }
 
-.app-nav>ul>li>a.active {
+.app-nav a.active {
   color: #000;
   font-weight: bold;
   font-family: Maven Pro Bold;
@@ -118,6 +127,10 @@
 
 .app-nav ul {
   margin-bottom: 100px;
+}
+
+.app-nav p {
+  display: none;
 }
 
 .markdown-section h2:first-child {
@@ -128,15 +141,51 @@
   display: none;
 }
 
+blockquote {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+blockquote img {
+  margin-left: 15px;
+}
+
+blockquote p:last-child {
+  color: #A3A3A3;
+  font-size: 14px;
+}
+
+table thead th:last-of-type {
+  font-size: 14px;
+  color: #A3A3A3;
+}
+
+table tbody tr td:first-of-type {
+  font-size: 14px;
+  color: #A3A3A3;
+  padding: 0 30px 0 0;
+}
+
+table tbody tr td:last-of-type {
+  color: #000;
+}
+
+.active {
+  color: #000 !important;
+  font-weight: 900 !important;
+  text-decoration: none !important;
+}
+
 @media screen and (max-width: 1030px) {
   :root {
-    --navbar-root-margin: 0 15px;
+    --navbar-root-margin: 0 12px;
   }
 }
 
 @media screen and (max-width: 832px) {
   :root {
-    --navbar-root-margin: 0 7px;
+    --navbar-root-margin: 0 5px;
     --heading-h2-margin: 45px 0 40px;
     --heading-h2-padding: 0 0 28px;
     --heading-h3-font-size: 32px;
@@ -153,4 +202,51 @@
   .markdown-section blockquote {
     margin: 20px 0;
   }
+}
+
+@media screen and (max-width: 600px) {
+  :root {
+    --navbar-root-margin: 0;
+    --navbar-root-color: #fff;
+
+  }
+
+  .app-nav {
+    top: calc(5px - (0.5em * var(--base-line-height)));
+  }
+
+  .app-nav ul {
+    display: flex;
+    flex-direction: column;
+    background: #0DC077;
+    align-items: flex-start;
+    width: fit-content;
+    transition: margin-left 0.3s;
+  }
+
+  .nav-close {
+    margin-left: 200% !important;
+  }
+
+  .nav-open {
+    margin-left: 100% !important;
+    transform: translate(-100%, 0);
+  }
+
+  .app-nav ul li a {
+    padding: 10px 30px;
+  }
+
+  .app-nav p {
+    display: block;
+    text-align: right;
+    text-decoration: underline;
+    color: #0DC077;
+    margin-top: 30px;
+  }
+
+  .app-nav>ul>li>a.active {
+    color: #fff;
+  }
+
 }
