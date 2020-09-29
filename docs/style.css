@@ -33,6 +33,9 @@
   --heading-h3-font-size: 32px;
   --heading-h3-font-weight: 700;
   --heading-h3-margin: 90px 0 24px;
+  --heading-h4-font-size: 24px;
+  --heading-h4-font-weight: 700;
+  --heading-h4-margin: 40px 0 24px;
 
   --link-color: #0DC077;
   --link-text-decoration: none;
@@ -52,6 +55,7 @@
   --sidebar-nav-link-before-content-l3: '';
   --sidebar-nav-link-before-content: '';
   --sidebar-nav-link-color--active: #000;
+  --sidebar-nav-link-color: #000;
 
   --table-head-font-weight: 900;
   --table-head-font-size: 32px;
@@ -68,6 +72,12 @@
 
 .sidebar-nav a {
   padding: 0;
+}
+
+.sidebar-nav a.active {
+  color: #000;
+  font-weight: bold;
+  font-family: Maven Pro Bold;
 }
 
 .sidebar-nav>ul>li {
@@ -119,7 +129,7 @@
   border-radius: 5px;
 }
 
-.app-nav a.active {
+.app-nav > ul > li > a.active {
   color: #000;
   font-weight: bold;
   font-family: Maven Pro Bold;
@@ -172,9 +182,9 @@ table tbody tr td:last-of-type {
 }
 
 .active {
-  color: #000 !important;
-  font-weight: 900 !important;
-  text-decoration: none !important;
+  color: #000 ;
+  font-weight: 900 ;
+  text-decoration: none ;
 }
 
 @media screen and (max-width: 1030px) {
@@ -208,6 +218,7 @@ table tbody tr td:last-of-type {
   :root {
     --navbar-root-margin: 0;
     --navbar-root-color: #fff;
+    --navbar-root-color--active: #fff;
 
   }
 
@@ -246,8 +257,7 @@ table tbody tr td:last-of-type {
     margin-top: 30px;
   }
 
-  .app-nav>ul>li>a.active {
+  .app-nav > ul > li > a.active {
     color: #fff;
   }
-
 }
