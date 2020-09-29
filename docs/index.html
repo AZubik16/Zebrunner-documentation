@@ -42,9 +42,14 @@
         (hook, vm) => {
           window.addEventListener('hashchange', () => {
             console.log('hashchange');
-            if (!document.body.classList.contains('_main-menu-initialized')) {
-              handleMainMenu();
-            }
+
+            setTimeout(() => {
+              const ulList = document.querySelector('.sidebar-nav > ul');
+
+              if (ulList && !ulList.classList.contains('_main-menu-initialized')) {
+                handleMainMenu();
+              }
+            }, 0);
           }, false);
           hook.mounted(function() {
             console.log('mounted');
@@ -142,7 +147,6 @@
     function isLiElemActive(liElem) {
       if (liElem.children.length === 2) {
         if (liElem.firstChild.tagName === 'P' && liElem.firstChild.children.length === 0 && liElem.lastChild.tagName === 'UL') {
-          debugger
           liElem.classList.add('collapse');
           const linkList = liElem.querySelectorAll('a');
           const windowHash = window.location.hash;
