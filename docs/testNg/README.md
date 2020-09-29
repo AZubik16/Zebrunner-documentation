@@ -11,7 +11,7 @@ Agent comes bundled with TestNG 7.1.0, so you may want to comment our your depen
 <!-- tabs:start -->
 
 #### ** Maven **
-```
+```xml
     <dependency>
       <groupld>com.zebrunner</groupld>
         <artifactld>agent-testing</artifactld>
@@ -20,7 +20,7 @@ Agent comes bundled with TestNG 7.1.0, so you may want to comment our your depen
 ```
 
 #### ** Gradle **
-```
+```xml
     <dependency>
         <groupld>com.zebrunner</groupld>
             <artifactld>agent-testing</artifactld>

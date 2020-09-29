@@ -40,44 +40,121 @@
       themeColor: '#0DC077',
       plugins: [
         (hook, vm) => {
+          window.addEventListener('hashchange', () => {
+            console.log('hashchange');
+            if (!document.body.classList.contains('_main-menu-initialized')) {
+              handleMainMenu();
+            }
+          }, false);
           hook.mounted(function() {
+            console.log('mounted');
             const sidebarNavEl = document.querySelector('.sidebar-nav');
 
             if (sidebarNavEl) {
               sidebarNavEl.addEventListener('click', (e) => {
                 const elem = e.target;
-                debugger
-                const ulList = document.getElementsByTagName('ul');
-                if (elem.innerText === 'Java') {
-                  if (ulList[3].hasAttribute('class')) {
-                    ulList[3].removeAttribute('class')
+                const elemNextSibling = elem.nextSibling;
+
+                if (elem.tagName === 'P' && elemNextSibling.tagName === 'UL' && elemNextSibling.classList.contains('sub-sub-menu')) {
+                  const elemParentNode = elem.parentNode;
+
+                  if (elemParentNode.className.includes('collapse')) {
+                    elemParentNode.classList.remove('collapse');
                   } else {
-                    ulList[3].setAttribute('class', 'collapse');
+                    elemParentNode.classList.add('collapse');
                   }
+                }
+                if (elem.tagName.toLocaleLowerCase() === 'a') {
+                  setTimeout(() => {
+                    const linkList = document.querySelectorAll('.sidebar a');
+
+                    for (let link of linkList) {
+                      link.classList.remove('active');
+                      isLiElemActive(link.parentNode);
+                      if (link.hash === window.location.hash) {
+                        link.classList.add('active');
+                      }
+                    }
+                  }, 100);
                 }
               })
             }
           });
           hook.ready(function() {
-            const ulList = document.getElementsByTagName('ul');
-            ulList[3].setAttribute('class', 'collapse');
+            console.log('ready');
+
+            handleMainMenu();
+
             const navigation = document.querySelector('.app-nav > p');
-            const list = document.querySelector('nav > ul').setAttribute('class', 'nav-close');
+            // const list = document.querySelector('nav > ul').setAttribute('class', 'nav-close');
             if (navigation) {
               navigation.addEventListener('click', (e) => {
                 const list = document.querySelector('nav > ul');
+
                 if (list.className === 'nav-open') {
-                  list.removeAttribute('class')
-                  list.setAttribute('class', 'nav-close')
+                  list.classList.remove('nav-open');
                 } else {
-                  list.removeAttribute('class')
-                  list.setAttribute('class', 'nav-open')
+                  list.classList.add('nav-open');
                 }
               })
+            }
+
+
+            const linkList = document.querySelectorAll('.sidebar a');
+
+            for (let link of linkList) {
+              link.classList.remove('active');
+
+              if (link.hash === window.location.hash) {
+                link.classList.add('active');
+              }
             }
           });
         },
       ],
+    }
+
+    function handleMainMenu() {
+      function addClass(ulList, elClassName) {
+
+        if (ulList) {
+          let hasActiveSubItem = false;
+          ulList.classList.add(elClassName);
+
+          for (let liElem of ulList.children) {
+            const subElem = liElem.lastChild;
+
+            liElem.classList.add(elClassName + '-item');
+
+            if (subElem.nodeName === 'UL') {
+              isLiElemActive(liElem);
+              addClass(subElem, 'sub-' + elClassName);
+            }
+          }
+        }
+      }
+
+      const ulList = document.querySelector('.sidebar-nav > ul');
+      addClass(ulList, 'menu');
+      ulList.classList.add('_main-menu-initialized');
+    }
+
+    function isLiElemActive(liElem) {
+      if (liElem.children.length === 2) {
+        if (liElem.firstChild.tagName === 'P' && liElem.firstChild.children.length === 0 && liElem.lastChild.tagName === 'UL') {
+          debugger
+          liElem.classList.add('collapse');
+          const linkList = liElem.querySelectorAll('a');
+          const windowHash = window.location.hash;
+
+          for (let elem of linkList) {
+            if (elem.hash === windowHash) {
+              liElem.classList.remove('collapse');
+              break;
+            }
+          }
+        }
+      }
     }
   </script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>

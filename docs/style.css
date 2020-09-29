@@ -137,8 +137,13 @@
   margin-top: 100px;
 }
 
-.collapse {
+.collapse ul {
   display: none;
+}
+
+.sub-menu-item p:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 blockquote {
@@ -149,11 +154,6 @@ blockquote {
 
 blockquote img {
   margin-left: 15px;
-}
-
-blockquote p:last-child {
-  color: #A3A3A3;
-  font-size: 14px;
 }
 
 table thead th:last-of-type {
@@ -221,16 +221,17 @@ table tbody tr td:last-of-type {
     background: #0DC077;
     align-items: flex-start;
     width: fit-content;
-    transition: margin-left 0.3s;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(200%);
+    position: absolute;
+    right: 0;
+    top: 100%;
+    opacity: 0;
   }
 
-  .nav-close {
-    margin-left: 200% !important;
-  }
-
-  .nav-open {
-    margin-left: 100% !important;
-    transform: translate(-100%, 0);
+  .app-nav .nav-open {
+    opacity: 1;
+    transform: translateX(0);
   }
 
   .app-nav ul li a {

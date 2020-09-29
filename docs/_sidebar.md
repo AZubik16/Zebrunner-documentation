@@ -3,7 +3,7 @@
 ![logo](_media/zebrunner-logo.png)
 
 *  GETTING STARTED
-  [Overview]()
+  [Overview](overview/README.md)
   [Release notes](release-notes/README.md)
   [FAQ]()
 
