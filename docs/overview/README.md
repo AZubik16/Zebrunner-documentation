@@ -6,6 +6,30 @@ Zebrunner is all-in-one automation testing platform with embedded reporting and 
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Varius ullamcorper laoreet vitae gravida quis et turpis porttitor. In habitasse enim morbi mauris cras.
 
+<!-- tabsArticle:start -->
+
+#### ** Maven **
+```xml
+    <dependency>
+      <groupld>com.zebrunner</groupld>
+        <artifactld>agent-testing</artifactld>
+        <version>1.0.0</version>
+    </dependency>
+```
+
+#### ** Gradle **
+```xml
+    <dependency>
+        <groupld>com.zebrunner</groupld>
+            <artifactld>agent-testing</artifactld>
+            <version>1.0.0</version>
+    </dependency>
+```
+
+<!-- tabsArticle:end -->
+
+
+
 | ![icon](_media/text-lines.png) What's new  |
 | --- |
 |Get insights on your testing results with AI analytics dashboards. Benefit from enterprise-grade scalability for test execution. Make debugging faster with automatic issue reporting. |
